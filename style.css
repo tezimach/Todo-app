@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+/* primary */
+.text-color-bright-blue {
+    color:  hsla(220, 98%, 61%, 1);
+}
+
+.checkbox-bg-color {
+    background-color: linear-gradient hsla(192, 100%, 67%, 1) to hsla(280, 87%, 65%, 1);
+}
+
+/* styles for light theme */
+
+.text-very-light-grayish-blue {
+    color: hsla(233, 11%, 84%, 1);
+}
+
+.text-light-grayish-blue {
+    color: hsla(235, 9%, 61%, 1);
+} 
+
+.text-dark-grayish-blue {
+    color: hsla(235, 14%, 26%, 1);
+}
+
+.text-very-dark-grayish-blue {
+    color: hsla(235, 19%, 35%, 1);
+}
+
+
+.bg-very-light-gray {
+    color: hsl(0, 0%, 98%);
+}
+
+/* Typography */
+.text-font-style-task {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -0.166667px;
+}
+
+.text-font-style-task {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.194444px;
+}
+
