@@ -116,9 +116,8 @@ h1 {
 
 #tasks {
     box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     min-width: 86%;
-    margin-bottom: 16px;
 }
 
 li {
@@ -189,8 +188,22 @@ button {
 }
 
 .info {
-    border-bottom: none;
-    margin: 0 20px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+    border-radius: 0px 0px 5px 5px;
+    min-width: 86%;
+    margin-bottom: 16px;
+}
+
+.info span {
+    margin-left: 20px;
+}
+
+.info a {
+    margin-right: 20px;
 }
 
 a {
@@ -215,4 +228,9 @@ a {
 .drop-and-drag-info {
     display: block;
     margin-bottom: 72px;
+}
+
+.task-completed label{
+    text-decoration: line-through;
+    color: hsla(233, 11%, 84%, 1);
 }
