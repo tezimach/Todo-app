@@ -1,7 +1,9 @@
 const setup = (tasks, rootElementId) => {
     let taskListHTML = "";
+    let count = 0;
     for (let i=0; i<tasks.length; i++) {
     let task = tasks[i];
+    count ++;
     taskListHTML += `
         <li class="task ${task.active? "": "task-completed"}" data-id="${i}">
         <div class="container">
@@ -18,6 +20,8 @@ const setup = (tasks, rootElementId) => {
     }
 
     document.getElementById(rootElementId).innerHTML = taskListHTML;
+    let itemsLeft = document.getElementById("active-left");
+    itemsLeft.innerHTML = `${count} items left`;
 
     const tasksListHTML = document.getElementById("tasks");
     let taskItems = Array.from(tasksListHTML.querySelectorAll('.task-checkbox, .task-text'));
@@ -26,7 +30,6 @@ const setup = (tasks, rootElementId) => {
         taskItem.addEventListener("click", (event)=>{
             let dataId = Number(event.target.closest("li").getAttribute("data-id"));
             tasks[dataId].active = !tasks[dataId].active;
-
             setup (tasks, "tasks");
         });
     });
