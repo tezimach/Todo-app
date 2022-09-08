@@ -234,3 +234,7 @@ a {
     text-decoration: line-through;
     color: hsla(233, 11%, 84%, 1);
 }
+
+.hidden {
+    display: none;
+}

@@ -25,10 +25,10 @@
     <span class="text-font-style-task text-light-grayish-blue" id="active-left">5 items left</span>
     <a class="text-font-style-task text-light-grayish-blue" href="#" id="delete-completed">Clear Completed</a>
   </div>
-  <div class="filter-container bg-white">
-    <a class="text-font-style-filter text-light-grayish-blue" href="#">All</a>
-    <a class="text-font-style-filter text-light-grayish-blue" href="#">Active</a>
-    <a class="text-font-style-filter text-light-grayish-blue" href="#">Completed</a>
+  <div class="filter-container bg-white" id="filter-buttons">
+    <a class="text-font-style-filter text-light-grayish-blue" href="#" data-filter="all">All</a>
+    <a class="text-font-style-filter text-light-grayish-blue" href="#" data-filter="active">Active</a>
+    <a class="text-font-style-filter text-light-grayish-blue" href="#" data-filter="completed">Completed</a>
   </div>
   <span class="drop-and-drag-info text-font-style-task text-light-grayish-blue">Drag and drop to reorder list</span>
 
@@ -53,6 +53,71 @@ input.onkeydown = (e) => {
   }
 };
 
+let deleteAllCompleted = document.getElementById("delete-completed");
+
+deleteAllCompleted.addEventListener("click", (event)=>{
+  let task = Array.from(document.getElementsByClassName("task-completed"));
+  task.map((el)=>{
+    let taskDataId = el.getAttribute("data-id");
+    console.log(taskDataId);
+    tasks.splice(taskDataId,1);
+    setup (tasks, "tasks");
+  });
+});
+
+let filterContainer = document.getElementById("filter-buttons");
+
+filterContainer.addEventListener("click", (event)=>{
+  event.preventDefault();
+  const filter = event.target.getAttribute("data-filter");
+
+  switch (filter) {
+    case "active": 
+      tasks.map((task)=>{
+        let taskElementCompleted = document.getElementsByClassName(`task-completed`);
+        let taskElementNotCompleted = document.getElementsByClassName(`task-not-completed`);
+
+        if (task.active){
+          for (let i =0; i<taskElementCompleted.length; i++) {
+          let task = taskElementCompleted[i]
+          task.classList.add("hidden");
+          }
+        }else{
+          for (let i =0; i<taskElementNotCompleted.length; i++) {
+          let task = taskElementNotCompleted[i]
+          task.classList.remove("hidden");
+          }
+        }
+      });
+      break;
+    case "completed": 
+      tasks.map((task)=>{
+        let taskElementCompleted = document.getElementsByClassName(`task-completed`);
+        let taskElementNotCompleted = document.getElementsByClassName(`task-not-completed`);
+        if (task.active){
+          for (let i =0; i<taskElementCompleted.length; i++) {
+          let task = taskElementCompleted[i]
+          task.classList.remove("hidden");
+          }
+        }else{
+          for (let i =0; i<taskElementNotCompleted.length; i++) {
+          let task = taskElementNotCompleted[i]
+          task.classList.add("hidden");
+          }
+        }
+      });
+      break;
+    case "all":
+      tasks.map((task)=>{
+        let taskElement = document.getElementsByClassName(`task`);
+        for (let i =0; i<taskElement.length; i++) {
+        let task = taskElement[i]
+        task.classList.remove("hidden");
+        }
+      });
+      break;
+  }
+});
 
 </script>
 
