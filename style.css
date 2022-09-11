@@ -126,6 +126,7 @@ li {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid hsla(236, 32%, 92%, 1);
+    cursor: move;
 }
 
 
@@ -133,6 +134,10 @@ li {
 .container {
     margin-left: 20px;
     display: flex;
+}
+
+.container label {
+    cursor: pointer;
 }
 
 .round {
@@ -238,3 +243,11 @@ a {
 .hidden {
     display: none;
 }
+
+.task.over {
+    border: 3px dotted #666;
+  }
+
+  .delete-task {
+    cursor: pointer;
+  }

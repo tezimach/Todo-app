@@ -5,7 +5,7 @@ const setup = (tasks, rootElementId) => {
     let task = tasks[i];
     count ++;
     taskListHTML += `
-        <li class="task ${task.active? "task-not-completed": "task-completed"}" data-id="${i}" id="task-main-${i}">
+        <li class="task ${task.active? "task-not-completed": "task-completed"}" data-id="${i}" id="task-main-${i}" draggable="true">
         <div class="container">
             <div class="round">
             <input type="checkbox" ${task.active? "": "checked"} id="task-${i}" name="completed" class = "task-checkbox"/>
