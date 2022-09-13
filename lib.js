@@ -31,6 +31,12 @@ const setup = (tasks, rootElementId) => {
             let dataId = Number(event.target.closest("li").getAttribute("data-id"));
             tasks[dataId].active = !tasks[dataId].active;
             setup (tasks, "tasks");
+            if(moon.getAttribute("class") === "hidden"){
+                darkTheme();
+            }
+            if (sun.getAttribute("class") === "hidden"){
+                lightTheme();
+            }
         });
     });
 

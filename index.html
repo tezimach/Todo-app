@@ -229,61 +229,69 @@ const info = document.getElementsByClassName("info")[0];
 const filterButtons = document.getElementById("filter-buttons");
 const taksHTML = document.getElementById("tasks");
 
+let darkTheme = () => {
+  moon.classList.add("hidden");
+  sun.classList.remove("hidden");
+  body.style.backgroundImage = "url('/images/bg-mobile-dark.jpg')";
+  body.classList.remove("text-very-light-gray");
+  body.classList.add("bg-very-dark-blue");
+  form.classList.remove("bg-white");
+  form.classList.add("bg-medium-dark-blue");
+  addTask.classList.remove("bg-white");
+  addTask.classList.add("bg-medium-dark-blue");
+  Array.from(taskArray).map((task)=>{
+    task.classList.remove("bg-white");
+    task.classList.add("bg-medium-dark-blue");
+    task.style.borderBottomColor = "hsla(237, 14%, 26%, 1)";
+    let taskLabel = task.firstElementChild.firstElementChild.nextElementSibling;
+    taskLabel.classList.remove("text-very-dark-grayish-blue");
+    taskLabel.classList.add("text-gray-for-dark-theme");
+  });
+  info.classList.remove("bg-white");
+  info.classList.add("bg-medium-dark-blue");
+  info.style.boxShadow = "0px 35px 50px -15px rgba(0, 0, 0, 0.5)";
+  filterButtons.classList.remove("bg-white");
+  filterButtons.classList.add("bg-medium-dark-blue");
+  filterButtons.style.boxShadow = "0px 35px 50px -15px rgba(0, 0, 0, 0.5)";
+  taksHTML.style.boxShadow = "0px 35px 50px -15px rgba(0, 0, 0, 0.5)";
+}
+
+let lightTheme = () => {
+  sun.classList.add("hidden");
+  moon.classList.remove("hidden");
+  body.style.backgroundImage = "url('/images/bg-mobile-light.jpg')";
+  body.classList.add("text-very-light-gray");
+  body.classList.remove("bg-very-dark-blue");
+  form.classList.add("bg-white");
+  form.classList.remove("bg-medium-dark-blue");
+  addTask.classList.add("bg-white");
+  addTask.classList.remove("bg-medium-dark-blue");
+  Array.from(taskArray).map((task)=>{
+    task.classList.remove("bg-medium-dark-blue");
+    task.classList.add("bg-white");
+    task.style.borderBottomColor = "hsla(236, 32%, 92%, 1)";
+    let taskLabel = task.firstElementChild.firstElementChild.nextElementSibling;
+    taskLabel.classList.add("text-very-dark-grayish-blue");
+    taskLabel.classList.remove("text-gray-for-dark-theme");
+  });
+  info.classList.add("bg-white");
+  info.classList.remove("bg-medium-dark-blue");
+  info.style.boxShadow = "0px 35px 50px -15px rgba(194, 195, 214, 0.5)";
+  filterButtons.classList.add("bg-white");
+  filterButtons.classList.remove("bg-medium-dark-blue");
+  filterButtons.style.boxShadow = "0px 35px 50px -15px rgba(194, 195, 214, 0.5)";
+  taksHTML.style.boxShadow = "0px 35px 50px -15px rgba(194, 195, 214, 0.5)";
+}
+
 if(moon.id === "moon"){
   moon.addEventListener("click",()=>{
-    moon.classList.add("hidden");
-    sun.classList.remove("hidden");
-    body.style.backgroundImage = "url('/images/bg-mobile-dark.jpg')";
-    body.classList.remove("text-very-light-gray");
-    body.classList.add("bg-very-dark-blue");
-    form.classList.remove("bg-white");
-    form.classList.add("bg-medium-dark-blue");
-    addTask.classList.remove("bg-white");
-    addTask.classList.add("bg-medium-dark-blue");
-    Array.from(taskArray).map((task)=>{
-      task.classList.remove("bg-white");
-      task.classList.add("bg-medium-dark-blue");
-      task.style.borderBottomColor = "hsla(237, 14%, 26%, 1)";
-      let taskLabel = task.firstElementChild.firstElementChild.nextElementSibling;
-      taskLabel.classList.remove("text-very-dark-grayish-blue");
-      taskLabel.classList.add("text-gray-for-dark-theme");
-    });
-    info.classList.remove("bg-white");
-    info.classList.add("bg-medium-dark-blue");
-    info.style.boxShadow = "0px 35px 50px -15px rgba(0, 0, 0, 0.5)";
-    filterButtons.classList.remove("bg-white");
-    filterButtons.classList.add("bg-medium-dark-blue");
-    filterButtons.style.boxShadow = "0px 35px 50px -15px rgba(0, 0, 0, 0.5)";
-    taksHTML.style.boxShadow = "0px 35px 50px -15px rgba(0, 0, 0, 0.5)";
+    darkTheme();
   });
 }
 
 if (sun.id === "sun"){
   sun.addEventListener("click",()=>{
-    sun.classList.add("hidden");
-    moon.classList.remove("hidden");
-    body.style.backgroundImage = "url('/images/bg-mobile-light.jpg')";
-    body.classList.add("text-very-light-gray");
-    body.classList.remove("bg-very-dark-blue");
-    form.classList.add("bg-white");
-    form.classList.remove("bg-medium-dark-blue");
-    addTask.classList.add("bg-white");
-    addTask.classList.remove("bg-medium-dark-blue");
-    Array.from(taskArray).map((task)=>{
-      task.classList.remove("bg-medium-dark-blue");
-      task.classList.add("bg-white");
-      task.style.borderBottomColor = "hsla(236, 32%, 92%, 1)";
-      let taskLabel = task.firstElementChild.firstElementChild.nextElementSibling;
-      taskLabel.classList.add("text-very-dark-grayish-blue");
-      taskLabel.classList.remove("text-gray-for-dark-theme");
-    });
-    info.classList.add("bg-white");
-    info.classList.remove("bg-medium-dark-blue");
-    info.style.boxShadow = "0px 35px 50px -15px rgba(194, 195, 214, 0.5)";
-    filterButtons.classList.add("bg-white");
-    filterButtons.classList.remove("bg-medium-dark-blue");
-    filterButtons.style.boxShadow = "0px 35px 50px -15px rgba(194, 195, 214, 0.5)";
-    taksHTML.style.boxShadow = "0px 35px 50px -15px rgba(194, 195, 214, 0.5)";
+    lightTheme();
   });
 }
 
